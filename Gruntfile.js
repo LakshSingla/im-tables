@@ -106,7 +106,7 @@ grunt.initConfig({
       }
     },
     test: {
-      exec: "mocha --compilers coffee:coffee-script/register test/unit/*"
+      exec: "mocha --require coffee-script/register coffee:coffee-script/register test/unit/*"
     },
     bower_install: {
       cmd: 'bower',
