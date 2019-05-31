@@ -39,7 +39,6 @@ module.exports = class CoreModel extends Backbone.Model
         attrs[p] = @get p # otherwise it will be overwritten.
       else
         throw new Error msg
-    super()
 
   # Calls to set(prop) after freeze(prop) will throw.
   freeze: (properties...) ->

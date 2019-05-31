@@ -140,19 +140,17 @@ describe 'Destination Options', ->
   describe 'by default', ->
 
     options = new Options
-    destinations = (d for d in options.get('Destinations') \
-                            when options.get(['Destination', d, 'Enabled']))
 
     it 'should find 3 enabled destinations', ->
+      destinations = (d for d in options.get('Destinations') when options.get(['Destination', d, 'Enabled']))
       destinations.length.should.eql 3
 
   describe 'disabling one of them', ->
 
     options = new Options
     options.set 'Destination.GenomeSpace.Enabled', false
-    destinations = (d for d in options.get('Destinations') \
-                            when options.get(['Destination', d, 'Enabled']))
 
     it 'should find 2 enabled destinations', ->
+      destinations = (d for d in options.get('Destinations') when options.get(['Destination', d, 'Enabled']))
       destinations.length.should.eql 2
 
