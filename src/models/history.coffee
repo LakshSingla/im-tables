@@ -9,7 +9,7 @@ module.exports = class History extends Collection
   currentQuery: null
 
   initialize: ->
-    super
+    super()
     @listenTo @, 'remove', @unwatch
     @listenTo @, 'add', @watch
 

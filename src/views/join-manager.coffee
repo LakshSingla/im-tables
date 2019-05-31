@@ -16,14 +16,14 @@ module.exports = class FilterDialogue extends Modal
 
   parameters: ['query']
 
-  className: -> super + ' im-join-manager'
+  className: -> super() + ' im-join-manager'
 
   title: -> Messages.getText 'joins.Heading'
   dismissAction: -> Messages.getText 'Cancel'
   primaryAction: -> Messages.getText 'modal.ApplyChanges'
 
   initialize: ->
-    super
+    super()
     @joins = Joins.fromQuery @query
     @listenTo @joins, 'change:style', @setDisabled
 
@@ -44,7 +44,7 @@ module.exports = class FilterDialogue extends Modal
     @state.set disabled: (areEql current, initial)
 
   postRender: ->
-    super
+    super()
     body = @$ '.modal-body'
     @renderChild 'cons', (new Body collection: @joins), body
 

@@ -13,7 +13,7 @@ LINE_PARTS = [
 
 class BtnClasses extends ClassSet
 
-  constructor: (model, style) -> super
+  constructor: (model, style) -> super()
     'btn btn-default': true
     active: -> style is model.get 'style'
 
@@ -34,12 +34,12 @@ class Join extends CoreView
     'change:style change:parts': @reRender
 
   initialize: ->
-    super
+    super()
     @classSets =
       innerJoinBtn: new BtnClasses @model, 'INNER'
       outerJoinBtn: new BtnClasses @model, 'OUTER'
 
-  getData: -> _.extend super, @classSets
+  getData: -> _.extend super(), @classSets
 
   events: ->
     'click button': @onButtonClick

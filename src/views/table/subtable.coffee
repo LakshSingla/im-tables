@@ -41,7 +41,7 @@ module.exports = class SubTable extends CoreView
     expandedSubtables: TypeAssertions.Collection
 
   initialize: ->
-    super
+    super()
     @headers = new PathCollection
     @listenTo @expandedSubtables, 'add remove reset', @onChangeExpandedSubtables
     @buildHeaders()

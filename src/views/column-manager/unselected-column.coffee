@@ -18,6 +18,6 @@ module.exports = class UnselectedColumn extends SelectedColumn
 
   restoreTitle: 'columns.RestoreColumn'
 
-  getData: -> _.extend super, {@restoreTitle}
+  getData: -> _.extend super(), {@restoreTitle}
 
 

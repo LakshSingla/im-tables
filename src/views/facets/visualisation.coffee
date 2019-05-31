@@ -12,7 +12,7 @@ module.exports = class FacetVisualisation extends CoreView
 
   className: 'im-facet-vis'
 
-  initialize: ({@range}) -> super
+  initialize: ({@range}) -> super()
 
   RERENDER_EVENT: 'change:loading change:numeric change:canHaveMultipleValues'
 

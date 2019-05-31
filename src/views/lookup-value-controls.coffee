@@ -13,7 +13,7 @@ template = _.template html
 module.exports = class LoopValueControls extends AttributeValueControls
 
   initialize: ->
-    super # sets query, branding, etc.
+    super() # sets query, branding, etc.
     @state.set extraPlaceholder: Messages.get('conbuilder.ExtraPlaceholder')
     @listenTo @branding, 'change:defaults.extraValue.path', @reRender
     @listenTo @branding, 'change:defaults.extraValue.value', ->
@@ -22,11 +22,11 @@ module.exports = class LoopValueControls extends AttributeValueControls
     # rendering with type-aheads.
     @listenTo @model, 'change', @reRender
 
-  stateEvents: -> _.extend super,
+  stateEvents: -> _.extend super(),
     'change:extraPlaceholder': @reRender
 
   template: (data) ->
-    base = super
+    base = super()
     base + template data
 
   events: ->
@@ -106,5 +106,5 @@ module.exports = class LoopValueControls extends AttributeValueControls
     Promise.all([suggestingExtra, suggestingValue])
 
   remove: ->
-    super
+    super()
     @branding.destroy()

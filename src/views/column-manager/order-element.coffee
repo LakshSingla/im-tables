@@ -18,10 +18,10 @@ module.exports = class OrderElement extends SelectedColumn
 
   template: Templates.templateFromParts TEMPLATE_PARTS
 
-  modelEvents: -> _.extend super,
+  modelEvents: -> _.extend super(),
     'change:direction': @reRender
 
-  events: -> _.extend super,
+  events: -> _.extend super(),
     'click .im-change-direction': 'changeDirection'
 
   changeDirection: ->

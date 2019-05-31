@@ -25,7 +25,7 @@ module.exports = class FacetItems extends CoreView
 
   # This model has a reference to the NumericRange model, so it can
   # be passed on the SummaryStats child if this path turns out to be numeric.
-  initialize: ({@range}) -> super
+  initialize: ({@range}) -> super()
 
   invariants: ->
     modelHasRequiredAttrs: "Model only has the following attributes: #{ _.keys @model.attributes }"

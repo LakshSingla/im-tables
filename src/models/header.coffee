@@ -13,7 +13,7 @@ looksLikePath = (r) -> r? and r.isReference? and r.isAttribute?
 # sortable, sortDirection, numOfCons, etc
 module.exports = class HeaderModel extends PathModel
 
-  defaults: -> _.extend super,
+  defaults: -> _.extend super(),
     replaces: []
     isFormatted: false
     isComposed: false
@@ -26,9 +26,9 @@ module.exports = class HeaderModel extends PathModel
 
   # The query is needed to update derived properties.
   constructor: (opts, @query) ->
+    super opts.path
     throw new Error('no query') unless @query?.on
     throw new Error('no options') unless opts?
-    super opts.path
     @set _.omit opts, 'path'
     # ID depends on query as well as path.
     @set id: "#{ @query.toXML() }-#{ @get 'path' }"
@@ -43,7 +43,7 @@ module.exports = class HeaderModel extends PathModel
     @setConstraintNum()
 
   # the output of this method must be serializable, so we stringify the paths.
-  toJSON: -> _.extend super, replaces: @get('replaces').map String
+  toJSON: -> _.extend super(), replaces: @get('replaces').map String
 
   getView: ->
     {replaces, isFormatted, path} = @pick 'replaces', 'isFormatted', 'path'

@@ -35,7 +35,7 @@ module.exports = class FacetView extends CoreView
 
   # May inherit state, defines a model based on @query and @view
   initialize: ->
-    super
+    super()
     @range = new NumericRange
     @setPathNames()
     @setLimits()

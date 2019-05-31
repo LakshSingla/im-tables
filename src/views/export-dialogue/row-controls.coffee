@@ -22,7 +22,7 @@ class ResetButton extends View
 
   RERENDER_EVENT: 'change'
 
-  getData: -> _.extend super, isAll: not (@model.get('start') or @model.get('size'))
+  getData: -> _.extend super(), isAll: not (@model.get('start') or @model.get('size'))
 
   template: Templates.template 'export_rows_reset_button'
 
@@ -41,7 +41,7 @@ module.exports = class RowControls extends View
   RERENDER_EVENT: 'change:max'
 
   initialize: ->
-    super
+    super()
     @model.set max: null unless @model.has 'max'
     @listenTo @model, 'change:size', @updateLabels
     @listenTo @model, 'change:size change:start', @updateInputs

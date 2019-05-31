@@ -16,7 +16,7 @@ class AddColumnControl extends View
   @include HasTypeaheads
 
   initialize: ({@columns, @query}) ->
-    super
+    super()
     @initSuggestions()
 
   addSuggestion: (path) ->
@@ -57,7 +57,7 @@ class ResetButton extends View
   RERENDER_EVENT: 'change:isAll'
 
   initialize: ({@query, @columns}) ->
-    super
+    super()
     @setIsAll()
     @listenTo @columns, 'change:active', @setIsAll
 
@@ -82,7 +82,7 @@ class ColumnView extends View
   RERENDER_EVENT: 'change'
 
   initialize: ->
-    super
+    super()
     @model.set(active: true) unless @model.has 'active'
     unless @model.has('name')
       @model.set name: null # make sure it is present.
@@ -105,7 +105,7 @@ module.exports = class ColumnControls extends View
   className: 'container-fluid'
 
   initialize: ({@query}) ->
-    super
+    super()
     @columns = new PathSet
     # (re)-establish the state of the column selection, including
     # columns from the view that are not currently selected.

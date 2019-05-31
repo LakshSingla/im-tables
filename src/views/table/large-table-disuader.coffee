@@ -17,14 +17,14 @@ Actions =
 # large tables, and lets them choose one.
 module.exports = class LargeTableDisuader extends Modal
 
-  className: -> 'im-page-size-sanity-check fade ' + super
+  className: -> 'im-page-size-sanity-check fade ' + super()
 
   template: _.template large_table_disuader
 
   act: -> 
     @resolve "accept"
 
-  events: -> _.extend super,
+  events: -> _.extend super(),
     'click .btn-primary':         (=> @resolve Actions.ACCEPT)
     'click .add-filter-dialogue': (=> @resolve Actions.CONSTRAIN)
     'click .page-backwards':      (=> @resolve Actions.BACK)

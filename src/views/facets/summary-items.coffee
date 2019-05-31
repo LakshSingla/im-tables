@@ -31,7 +31,7 @@ module.exports = class SummaryItems extends CoreView
   setErrOnModel: -> @model.set @state.pick 'error'
 
   initialize: ->
-    super
+    super()
     @listenTo @model.items, 'add', @addItem
     @listenTo @model.items, 'remove', @removeItem
     @listenTo @state, 'change:typeName change:endName', @reRender
@@ -50,7 +50,7 @@ module.exports = class SummaryItems extends CoreView
 
   template: Templates.template 'summary_items'
  
-  getData: -> _.extend super,
+  getData: -> _.extend super(),
     hasMore: @model.hasMore()
     colClasses: (_.result @, 'colClasses')
     colHeaders: (_.result @, 'colHeaders')

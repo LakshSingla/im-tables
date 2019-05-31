@@ -56,7 +56,7 @@ module.exports = class SummaryModel extends CoreModel
   destroy: ->
     @histogram.close()
     @items.close()
-    super
+    super()
 
   # The max count is set if the data is initialized.
   getMaxCount: -> @get 'maxCount'
@@ -66,7 +66,7 @@ module.exports = class SummaryModel extends CoreModel
   hasAll: -> not @hasMore()
 
   # Include the items in the JSON output.
-  toJSON: -> _.extend super, items: @items.toJSON(), histogram: @getHistogram()
+  toJSON: -> _.extend super(), items: @items.toJSON(), histogram: @getHistogram()
 
   onFilterChange: ->
     if @hasAll()

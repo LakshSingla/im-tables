@@ -15,7 +15,7 @@ module.exports = class CoreModel extends Backbone.Model
   # Helper to change the value of an entry using a function.
   swap: (key, f) -> @set key, f @get key
 
-  toJSON: -> if @destroyed then 'DESTROYED' else super
+  toJSON: -> if @destroyed then 'DESTROYED' else super()
 
   # Release listeners in both directions, and delete
   # all instance properties.
@@ -39,7 +39,7 @@ module.exports = class CoreModel extends Backbone.Model
         attrs[p] = @get p # otherwise it will be overwritten.
       else
         throw new Error msg
-    super
+    super()
 
   # Calls to set(prop) after freeze(prop) will throw.
   freeze: (properties...) ->

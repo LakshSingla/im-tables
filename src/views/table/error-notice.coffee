@@ -26,7 +26,7 @@ module.exports = class ErrorNotice extends CoreView
 
   parameters: ['model', 'query']
 
-  helpers: -> _.extend super, indent: indentXML
+  helpers: -> _.extend super(), indent: indentXML
 
   template: Templates.template 'table-error'
 
@@ -59,7 +59,7 @@ module.exports = class ErrorNotice extends CoreView
       STACK:      #{ err?.stack }
     """
 
-    _.extend super, {domain, mailto: href, query: @query.toXML()}
+    _.extend super(), {domain, mailto: href, query: @query.toXML()}
 
   postRender: ->
     query = indentXML @query.toXML()

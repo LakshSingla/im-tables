@@ -20,7 +20,7 @@ module.exports = class InputWithButton extends CoreView
   # If passed in with a model, then we set into that,
   # otherwise maintain our own model value.
   initialize: ({@placeholder, @button, @sets}) ->
-    super
+    super()
     @sets ?= 'value'
 
   postRender: ->

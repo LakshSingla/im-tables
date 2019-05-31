@@ -56,7 +56,7 @@ class Option extends AdderButton
 
   className: ''
 
-  template: -> """<a>#{ super }</a>"""
+  template: -> """<a>#{ super() }</a>"""
 
 module.exports = class ComposedColumnConstraintAdder extends ConstraintAdder
 

@@ -24,11 +24,11 @@ module.exports = class TableModel extends CoreModel
   filled: => @swap 'fill', (n) -> n + 1
 
   toJSON: ->
-    data = super
+    data = super()
     data.minimisedColumns = @get('minimisedColumns').toJSON().map String
     return data
 
   destroy: ->
     @get('minimisedColumns').close()
-    super
+    super()
 

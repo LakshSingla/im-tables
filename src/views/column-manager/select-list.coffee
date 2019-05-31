@@ -24,10 +24,10 @@ module.exports = class SelectListEditor extends CoreView
 
   template: Templates.template 'column-manager-select-list'
 
-  getData: -> _.extend super, hasRubbish: @rubbishBin.size()
+  getData: -> _.extend super(), hasRubbish: @rubbishBin.size()
 
   initialize: ->
-    super
+    super()
     @listenTo @rubbishBin, 'remove', @restoreView
 
   initState: ->
@@ -183,4 +183,4 @@ module.exports = class SelectListEditor extends CoreView
       @$('.im-active-view').sortable 'destroy'
       @$('.im-removed-view').sortable 'destroy'
       @$('.im-rubbish-bin').droppable 'destroy'
-    super
+    super()

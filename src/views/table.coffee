@@ -68,7 +68,7 @@ module.exports = class Table extends CoreView
   # @param query The query this view is bound to.
   # @param selector Where to put this table.
   initialize: ->
-    super
+    super()
     # columnHeaders contains the header information.
     @columnHeaders ?= new ColumnHeaders
     # Formatters we are not allowed to use.
@@ -141,7 +141,7 @@ module.exports = class Table extends CoreView
   remove: -> # remove self, and all children, and remove listeners
     @cellModelFactory.destroy()
     delete @cellModelFactory
-    super
+    super()
 
   # Write the change in minimised state to the table model
   onChangeHeaderMinimised: (m) ->

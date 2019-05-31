@@ -15,7 +15,7 @@ module.exports = class QueryProperty extends CoreView
     @state.set open: false
 
   initialize: ->
-    super
+    super()
     @collectionClasses = new ClassSet
       'well well-sm': true
       'im-hidden': => not @state.get 'open'
@@ -23,7 +23,7 @@ module.exports = class QueryProperty extends CoreView
   getData: ->
     summaryLabel = _.result @, 'summaryLabel'
     count = @collection.where(removed: false).length
-    _.extend super, {count, summaryLabel, @labelContent, @collectionClasses}
+    _.extend super(), {count, summaryLabel, @labelContent, @collectionClasses}
 
   events: ->
     'click .im-section-summary': 'toggleOpen'

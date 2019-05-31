@@ -39,7 +39,7 @@ module.exports = class OuterJoinDropDown extends CoreView
   tagName: 'ul'
 
   initialize: ->
-    super
+    super()
     @subColumns = new SubColumns
     for c in @model.get 'replaces'
       @subColumns.add @query.makePath c

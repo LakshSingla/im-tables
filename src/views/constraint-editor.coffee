@@ -53,7 +53,7 @@ module.exports = class ConstraintEditor extends CoreView
   optionalParameters: ['buttonDelegate']
 
   initialize: ->
-    super
+    super()
     @path = @model.get 'path'
 
   invariants: -> modelHasPath: 'No path found on model'
@@ -181,7 +181,7 @@ module.exports = class ConstraintEditor extends CoreView
   template: TEMPLATE
 
   render: ->
-    super
+    super()
     @renderChild 'valuecontrols', @getValueControls(), @$ '.im-value-options'
     @renderChild 'error', (new ErrorMessage {@model})
     if @buttonDelegate?

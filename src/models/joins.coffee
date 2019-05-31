@@ -5,7 +5,7 @@ PathModel = require './path'
 
 class Join extends PathModel
 
-  defaults: -> _.extend super,
+  defaults: -> _.extend super(),
     style: 'INNER'
 
   constructor: ({path, style}) ->
@@ -19,7 +19,7 @@ module.exports = class Joins extends Collection
   comparator: 'displayName' # sort lexigraphically.
 
   initialize: ->
-    super
+    super()
     @listenTo @, 'change:displayName', @sort
 
   getJoins: -> _.object @where(style: 'OUTER').map (m) -> [m.get('path'), m.get('style')]

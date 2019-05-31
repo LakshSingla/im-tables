@@ -7,7 +7,7 @@ module.exports = class ReverseReference extends Reference
   className: 'im-reverse-reference'
 
   getData: ->
-    d = super
+    d = super()
     d.icon += " " + Icons.icon('ReverseRef')
     return d
 
@@ -17,7 +17,7 @@ module.exports = class ReverseReference extends Reference
     @$el.tooltip 'hide'
 
   render: ->
-    super
+    super()
     @$el.attr(title: "Refers back to #{ @path.getParent().getParent() }").tooltip()
     this
 

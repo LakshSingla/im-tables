@@ -25,7 +25,7 @@ module.exports = class TypeValueControls extends View
   parameters: ['query', 'model']
 
   initialize: ->
-    super
+    super()
     @model.swap 'type', (t) => t ? @model.get('path').getType().name
     @listenTo Messages, 'change', @reRender
     @listenTo @state, 'change:subclasses', @reRender

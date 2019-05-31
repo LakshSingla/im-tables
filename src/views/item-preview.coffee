@@ -25,7 +25,7 @@ class DetailsModel extends PathModel
 
 class AttrDetailsModel extends DetailsModel
 
-  defaults: -> _.extend super,
+  defaults: -> _.extend super(),
     fieldType: 'ATTR'
     valueOverspill: null
     tooLong: false
@@ -33,7 +33,7 @@ class AttrDetailsModel extends DetailsModel
 
 class RefDetailsModel extends DetailsModel
 
-  defaults: -> _.extend super,
+  defaults: -> _.extend super(),
     fieldType: 'REF'
     values: []
 
@@ -83,7 +83,7 @@ module.exports = class Preview extends CoreView
     service: ServiceType
 
   initialize: ->
-    super
+    super()
     @fieldDetails = new SortedByName
     @referenceFields = new SortedByName
 
@@ -97,7 +97,7 @@ module.exports = class Preview extends CoreView
     @referenceFields.close()
     delete @fieldDetails
     delete @referenceFields
-    super
+    super()
 
   fetching: null
 

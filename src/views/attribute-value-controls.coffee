@@ -41,7 +41,7 @@ module.exports = class AttributeValueControls extends CoreView
 
   # @Override
   initialize: ({@query}) ->
-    super
+    super()
     @sliders = []
     @branding = new NestedModel
     @cast = if @model.get('path').getType() in NUMERIC_TYPES then numify else trim
@@ -75,7 +75,7 @@ module.exports = class AttributeValueControls extends CoreView
   removeAllChildren: ->
     @removeTypeAheads()
     @removeSliders()
-    super
+    super()
 
   removeSliders: ->
     while sl = @sliders.pop()
@@ -203,5 +203,5 @@ module.exports = class AttributeValueControls extends CoreView
     @sliders.push $slider
 
   remove: ->
-    super
+    super()
     @removeTypeAheads()

@@ -18,13 +18,13 @@ module.exports = class ColumnManagerTabs extends CoreView
 
   className: 'im-column-manager-tabs'
 
-  getData: -> _.extend super, classes: @classSets
+  getData: -> _.extend super(), classes: @classSets
 
   initState: ->
     @state.set currentTab: ColumnManagerTabs.TABS[0]
 
   initialize: ->
-    super
+    super()
     @initClassSets()
 
   stateEvents: -> 'change:currentTab': @reRender

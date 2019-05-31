@@ -38,7 +38,7 @@ module.exports = class TabMenu extends View
 
   getData: ->
     tabs = @getTabs()
-    _.extend {tabs}, super
+    _.extend {tabs}, super()
 
   setTab: (tab) -> => unless @state.get('pinned')
     @model.set {tab}

@@ -35,7 +35,7 @@ module.exports = class ListValueControls extends View
   className: 'im-list-value-controls'
 
   initialize: ({@query}) ->
-    super
+    super()
     @initialValue = @model.get 'value'
     @path = @model.get 'path'
     @setSuitableLists()

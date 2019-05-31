@@ -5,7 +5,7 @@ PieChart = require './pie'
 module.exports = class BooleanChart extends PieChart
 
   initialize: ->
-    super
+    super()
     @listenTo @model.items, 'change:selected', @deselectOthers
     
   # Only one value can be selected at a time (unlike pie charts and histograms,

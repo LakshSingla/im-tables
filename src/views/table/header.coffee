@@ -65,7 +65,7 @@ module.exports = class ColumnHeader extends CoreView
   blacklistedFormatters: new Collection
 
   initialize: ->
-    super
+    super()
 
     @listenTo @query, 'showing:column-summary', @removeMySummary
 
@@ -111,7 +111,7 @@ module.exports = class ColumnHeader extends CoreView
       'im-non-root-parent': hasAncestors
       'im-last': (not last) # in which case the penult is actually last.
 
-    _.extend {penultClasses, last, penult}, @classSets, super
+    _.extend {penultClasses, last, penult}, @classSets, super()
 
   events: ->
     'click .im-col-sort': 'setSortOrder'

@@ -36,7 +36,7 @@ module.exports = class ColumnChooser extends CoreView
   template: Templates.template 'column-manager-path-chooser'
 
   initialize: ->
-    super
+    super()
     @chosenPaths = new PathSet
     @view = new PathSet(@query.makePath p for p in @collection.pluck 'path')
     @openNodes = new OpenNodes @query.getViewNodes() # Open by default
@@ -71,5 +71,5 @@ module.exports = class ColumnChooser extends CoreView
     @chosenPaths.close()
     @view.close()
     @openNodes.close()
-    super
+    super()
 

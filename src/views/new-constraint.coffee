@@ -8,7 +8,7 @@ Messages.set
 module.exports = class NewConstraint extends ActiveConstraint
 
   initialize: ->
-    super
+    super()
     @model.set
       new: true
       op: (if @model.get('path').isAttribute() then '=' else 'LOOKUP')
@@ -16,6 +16,6 @@ module.exports = class NewConstraint extends ActiveConstraint
       editing: true
 
   render: ->
-    super
+    super()
     @$el.addClass "im-new"
     this

@@ -21,7 +21,7 @@ module.exports = class SortOrderEditor extends CoreView
 
   template: Templates.template 'column-manager-sort-order-editor'
 
-  getData: -> _.extend super, available: @availableColumns.size()
+  getData: -> _.extend super(), available: @availableColumns.size()
 
   collectionEvents: ->
     'add remove': @reRender
@@ -29,7 +29,7 @@ module.exports = class SortOrderEditor extends CoreView
     'remove': @makeAvailable
 
   initialize: ->
-    super
+    super()
     @dragState = new CoreModel
     @listenTo @availableColumns, 'sort add remove', @resortAvailable
     @listenTo @availableColumns, 'remove', @addToSortOrder
@@ -74,7 +74,7 @@ module.exports = class SortOrderEditor extends CoreView
     @$droppable?.droppable 'destroy'
     @$droppable = null
     @$actives = null
-    super
+    super()
 
   events: ->
     'drop .im-empty-collection': 'addSortElement'
@@ -138,4 +138,4 @@ module.exports = class SortOrderEditor extends CoreView
 
   remove: ->
     @dragState.destroy()
-    super
+    super()

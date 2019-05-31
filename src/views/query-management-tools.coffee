@@ -18,7 +18,7 @@ module.exports = class QueryManagement extends CoreView
     history: HistoryType
 
   initialize: ->
-    super
+    super()
     @listenTo @history, 'changed:current', @reRender
 
   renderChildren: ->

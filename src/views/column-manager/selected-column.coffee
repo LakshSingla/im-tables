@@ -45,10 +45,10 @@ module.exports = class SelectedColumn extends CoreView
 
   getData: ->
     isLast = (@model is @model.collection.last())
-    _.extend super, {@removeTitle, isLast, parts: (@parts.pluck 'part')}
+    _.extend super(), {@removeTitle, isLast, parts: (@parts.pluck 'part')}
 
   initialize: ->
-    super
+    super()
     @parts = new Collection
     @listenTo @parts, 'add remove reset', @reRender
     @resetParts()

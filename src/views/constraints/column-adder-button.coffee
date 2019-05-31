@@ -19,7 +19,7 @@ module.exports = class AdderButton extends CoreView
 
   template: (data) -> _.escape Messages.getText 'constraints.AddConFor', data
 
-  getData: -> _.extend super, {@hideType}
+  getData: -> _.extend super(), {@hideType}
 
   modelEvents: -> change: @reRender
 

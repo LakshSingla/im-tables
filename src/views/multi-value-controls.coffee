@@ -81,7 +81,7 @@ module.exports = class MultiValueControls extends View
   className: 'im-value-options im-multi-value-table'
 
   initialize: ->
-    super
+    super()
     @values = new Values
     for v in (@model.get('values') or [])
       @values.add value: v
@@ -151,5 +151,5 @@ module.exports = class MultiValueControls extends View
 
   remove: ->
     @values.close()
-    super
+    super()
 

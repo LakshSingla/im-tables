@@ -29,7 +29,7 @@ module.exports = class InputWithLabel extends CoreView
   helpMessage: null
 
   initialize: ->
-    super
+    super()
     @setValidity()
 
   setValidity: -> @state.set problem: @getProblem @model.get @attr

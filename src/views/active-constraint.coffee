@@ -76,7 +76,7 @@ module.exports = class ActiveConstraint extends View
   optionalParameters: ['buttonDelegate']
 
   initialize: ->
-    super
+    super()
     # Model is the state of the constraint, with the path promoted to a full object.
     @model.set @constraint
 

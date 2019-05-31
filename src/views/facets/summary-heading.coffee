@@ -16,5 +16,5 @@ module.exports = class SummaryHeading extends CoreView
 
   template: Templates.template 'summary_heading'
 
-  getData: -> _.extend super, filtered: @model.get('filteredCount')?
+  getData: -> _.extend super(), filtered: @model.get('filteredCount')?
 

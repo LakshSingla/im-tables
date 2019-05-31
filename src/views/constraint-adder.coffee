@@ -42,7 +42,7 @@ module.exports = class ConstraintAdder extends View
   Model: ConstraintAdderModel
 
   initialize: ({@query, @buttonDelegate}) ->
-    super
+    super()
     @model.set
       root: @query.getPathInfo(@query.root) # Should never change.
 

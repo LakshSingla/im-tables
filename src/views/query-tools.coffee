@@ -33,7 +33,7 @@ module.exports = class QueryTools extends CoreView
   template: -> (SUBSECTIONS.map subsection).join ''
 
   initialize: ->
-    super
+    super()
     @listenTo @history, 'changed:current', @renderQueryConsumers
 
   renderChildren: ->

@@ -14,5 +14,5 @@ module.exports = class TagsApology extends CoreView
 
   template: Templates.template 'list-tags-apology'
 
-  getData: -> _.extend super, hasTags: @collection.size()
+  getData: -> _.extend super(), hasTags: @collection.size()
 

@@ -11,10 +11,10 @@ class DestinationSubOptions extends CoreView
   RERENDER_EVENT: 'change:dest'
 
   initialize: ->
-    super
+    super()
     @listenTo Options, 'change:Destination.Galaxy.*', @reRender
 
-  getData: -> _.extend super, Galaxy: Options.get('Destination.Galaxy')
+  getData: -> _.extend super(), Galaxy: Options.get('Destination.Galaxy')
 
   # Dispatches to the template to use.
   getTemplate: -> switch @model.get 'dest'
@@ -44,7 +44,7 @@ class RadioButtons extends CoreView
   destinations: -> (d for d in Options.get('Destinations') \
                             when Options.get(['Destination', d, 'Enabled']))
 
-  getData: -> _.extend {destinations: @destinations()}, super
+  getData: -> _.extend {destinations: @destinations()}, super()
 
   template: Templates.template 'export_destination_radios'
 
@@ -60,7 +60,7 @@ module.exports = class DestinationOptions extends CoreView
   getData: ->
     types = @model.get 'has'
     formats = Formats.getFormats types
-    _.extend {formats}, super
+    _.extend {formats}, super()
 
   template: Templates.template 'export_destination_options'
 

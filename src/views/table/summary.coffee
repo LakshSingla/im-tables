@@ -12,7 +12,7 @@ module.exports = class TableSummary extends CoreView
   RERENDER_EVENT: 'change:start change:size change:count'
 
   getData: ->
-    {start, size, count} = data = super
+    {start, size, count} = data = super()
     _.extend data, page:
       count: count
       first: start + 1

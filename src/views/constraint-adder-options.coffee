@@ -26,7 +26,7 @@ module.exports = class ConstraintAdderOptions extends View
   className: 'row'
 
   initialize: ({@query, @openNodes, @chosenPaths}) ->
-    super
+    super()
     @state.set chosen: [] # default value.
     @listenTo @openNodes, 'add remove reset', @reRender
     @listenTo @chosenPaths, 'add remove reset', @reRender
@@ -56,12 +56,12 @@ module.exports = class ConstraintAdderOptions extends View
   getData: ->
     anyNodesOpen = @openNodes.size()
     anyNodeChosen = @chosenPaths.size()
-    _.extend {anyNodesOpen, anyNodeChosen}, @state.toJSON(), super
+    _.extend {anyNodesOpen, anyNodeChosen}, @state.toJSON(), super()
 
   template: Templates.template 'constraint_adder_options'
 
   render: ->
-    super
+    super()
     if @state.has 'suggestions'
       @installTypeahead()
     this
@@ -100,7 +100,7 @@ module.exports = class ConstraintAdderOptions extends View
 
   remove: ->
     @removeTypeAheads() # here rather in removeAllChildren, since it was causing errors.
-    super
+    super()
 
   clearFilter: ->
     @model.set filter: null

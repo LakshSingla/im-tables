@@ -42,7 +42,7 @@ class SelectableNode extends CoreView
     'mouseout a': -> @highLight null
 
   initialize: ->
-    super
+    super()
     @query.summarise @model.get 'id'
           .then ({stats}) => @state.set count: stats.uniqueValues
 
@@ -78,7 +78,7 @@ module.exports = class ListDialogueButton extends CoreView
     'click .im-pick-items': @startPicking
 
   initialize: ->
-    super
+    super()
     @initBtnClasses()
     @paths = new Paths
     # Reversed, because we prepend them in order to the menu.
@@ -88,7 +88,7 @@ module.exports = class ListDialogueButton extends CoreView
            .then (count) => @state.set disabled: count is 0
            .then null, (err) => @state.set disabled: true, error: err
 
-  getData: -> _.extend super, @classSets, paths: @paths.toJSON()
+  getData: -> _.extend super(), @classSets, paths: @paths.toJSON()
 
   postRender: ->
     @setVisible()

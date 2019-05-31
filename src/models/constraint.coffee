@@ -26,7 +26,7 @@ constraintType = (opts) ->
 # Future work might want to improve this.
 module.exports = class ConstraintModel extends PathModel
 
-  defaults: -> _.extend super,
+  defaults: -> _.extend super(),
     value: null
     values: []
     ids: []

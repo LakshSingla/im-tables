@@ -27,7 +27,7 @@ module.exports = class PageSizer extends CoreView
 
   # We need the query because we will pass it on to modal dialogues we open.
   initialize: ->
-    super
+    super()
     size = @model.get 'size'
     if size? and size not in (s for [s] in @sizes)
       @sizes = [[size, size]].concat @sizes # assign, don't mutate

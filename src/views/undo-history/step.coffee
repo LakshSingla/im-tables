@@ -14,7 +14,7 @@ require '../../messages/constraints'
 # A class annotation that adds an 'added :: bool'
 # attribute to a Model
 withAdded = (Base) -> class WithAddedAndRemoved extends Base
-  defaults: -> _.extend super, added: false, removed: false
+  defaults: -> _.extend super(), added: false, removed: false
 
 class ObjConstructorPM extends PathModel
 
@@ -47,7 +47,7 @@ module.exports = class UndoStep extends CoreView
   tagName: 'li'
   template: Templates.template 'undo-history-step'
 
-  getData: -> _.extend super, diff: @getCountDiff()
+  getData: -> _.extend super(), diff: @getCountDiff()
 
   getCountDiff: ->
     if @state.has 'prevCount'
@@ -56,7 +56,7 @@ module.exports = class UndoStep extends CoreView
       null
 
   initialize: ->
-    super
+    super()
     q = @model.get 'query'
     @initPrevCount()
     lifter = liftPathAndType q

@@ -12,16 +12,16 @@ BAD_MODEL = 'No PathModel in call to new DropDownColumnSummary'
 # of {query :: Query, view :: PathInfo}.
 module.exports = class DropDownColumnSummary extends FacetView
 
-  className: -> "#{ super } im-dropdown-summary"
+  className: -> "#{ super() } im-dropdown-summary"
 
   constructor: ({query, model}) ->
     throw new Error(NO_QUERY) unless query
     throw new Error(BAD_MODEL) unless model instanceof PathModel
     super {query, view: model.pathInfo()}
 
-  events: -> _.extend super, click: ignore
+  events: -> _.extend super(), click: ignore
 
   postRender: ->
-    super
+    super()
     # there is one situation where this view is mounted, not appended.
     @$el.addClass @className()

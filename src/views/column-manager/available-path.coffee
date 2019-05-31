@@ -11,7 +11,7 @@ module.exports = class AvailablePath extends UnselectedColumn
 
   restoreTitle: 'columns.AddColumnToSortOrder'
 
-  events: -> _.extend super,
+  events: -> _.extend super(),
     mousedown: 'onMouseDown'
     dragstart: 'onDragStart'
     dragstop: 'onDragStop'

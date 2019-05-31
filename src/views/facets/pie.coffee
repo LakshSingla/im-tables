@@ -64,7 +64,7 @@ module.exports = class PieChart extends VisualisationBase
   className: 'im-pie-chart'
 
   initialize: ->
-    super
+    super()
     @listenTo @model.items, 'change:selected change:visible', @update
     @listenTo Options, 'change:PieColors', @onChangePalette
     @onChangePalette()

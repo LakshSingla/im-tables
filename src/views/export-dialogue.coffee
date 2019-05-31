@@ -74,12 +74,12 @@ module.exports = class ExportDialogue extends Modal
 
   Model: ExportModel
 
-  className: -> 'im-export-dialogue ' + super
+  className: -> 'im-export-dialogue ' + super()
 
   parameters: ['query']
 
   initialize: ->
-    super
+    super()
     # Lift format to definition if supplied.
     if (@model.has 'format') and not (@model.get('format').ext)
       @model.set format: Formats.getFormat @model.get 'format'
@@ -232,7 +232,7 @@ module.exports = class ExportDialogue extends Modal
     else throw new Error "Cannot export to #{ @state.get 'dest' }"
 
   events: ->
-    evts = super
+    evts = super()
     evts.keyup = 'handleKeyup'
     return evts
 
@@ -250,4 +250,4 @@ module.exports = class ExportDialogue extends Modal
     @renderChild 'menu', (new Menu {model: @state}), @$ 'nav.menu'
     @renderMain()
     @$el.focus() # to enable keyboard navigation
-    super
+    super()

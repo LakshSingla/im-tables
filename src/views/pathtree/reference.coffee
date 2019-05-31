@@ -5,7 +5,7 @@ Attribute = require './attribute'
 module.exports = class Reference extends Attribute
 
   initialize: ({@openNodes, @createSubFinder}) ->
-    super
+    super()
     @state.set collapsed: true
     @listenTo @openNodes, 'add remove', @setCollapsed
     @listenTo @state, 'change:collapsed', @onChangeCollapsed
@@ -23,7 +23,7 @@ module.exports = class Reference extends Attribute
       super(e)
 
   getData: ->
-    d = super
+    d = super()
     d.icon = Icons.icon if @state.get('collapsed') then 'ClosedReference' else 'OpenReference'
     return d
 

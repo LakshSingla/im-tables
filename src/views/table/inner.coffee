@@ -48,7 +48,7 @@ module.exports = class ResultsTable extends CoreView
     selectedObjects: (Types.InstanceOf SelectedObjects, 'SelectedObjects')
 
   initialize: ->
-    super
+    super()
     {service} = @query = @history.getCurrentQuery()
     @expandedSubtables = new PathSet # Owned by the table, used by CellFactory
     @popoverFactory = new PopoverFactory service, Preview
@@ -89,5 +89,5 @@ module.exports = class ResultsTable extends CoreView
     @popoverFactory.destroy()
     delete @popoverFactory
     delete @cellFactory
-    super
+    super()
 

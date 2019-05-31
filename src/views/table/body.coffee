@@ -21,7 +21,7 @@ module.exports = class TableBody extends CoreView
   template: ->
 
   initialize: ->
-    super
+    super()
     @_skipSets = {} # cache - one per table.
 
   renderChildren: ->
@@ -80,6 +80,6 @@ class EmptyApology extends CoreView # pun fully intended ;)
 
   events: -> 'click .btn-undo': -> @history.popState()
 
-  getData: -> _.extend super,
+  getData: -> _.extend super(),
     selectList: @history.getCurrentQuery().views
     canUndo: (@history.length > 1)

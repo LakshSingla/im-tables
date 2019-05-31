@@ -20,7 +20,7 @@ module.exports = class ListDialogueBody extends CoreView
 
   template: Templates.template 'list-dialogue-body'
 
-  getData: -> _.extend super
+  getData: -> _.extend super()
 
   modelEvents: -> 'add:tag': 'addTag'
 

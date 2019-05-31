@@ -13,7 +13,7 @@ module.exports = class FormattedSorting extends CoreView
   tagName: 'ul'
 
   initialize: ({@query}) ->
-    super
+    super()
     @setPathNames() # initialise the path display name dictionary
 
   modelEvents: ->

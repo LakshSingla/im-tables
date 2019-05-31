@@ -18,7 +18,7 @@ module.exports = class FormatControls extends View
   getData: ->
     types = @model.get 'has'
     formats = Formats.getFormats types
-    _.extend {formats}, super
+    _.extend {formats}, super()
 
   events: ->
     'change input:radio': 'onChangeFormat'

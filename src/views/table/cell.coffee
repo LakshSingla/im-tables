@@ -89,7 +89,7 @@ module.exports = class Cell extends CoreView
     popovers: (new types.Structure 'HasGet', get: types.Function)
 
   initialize: ->
-    super
+    super()
     @listen()
 
   initState: ->
@@ -432,7 +432,7 @@ module.exports = class Cell extends CoreView
     if @children.popover?
       @stopListeningTo(@children.popover)
       @$el.popover('destroy') if @children.popover.rendered
-    super
+    super()
 
   destroyPreview: -> if @children.popover?
     @stopListeningTo(@children.popover)

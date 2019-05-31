@@ -38,7 +38,7 @@ module.exports = class NestedTableModel extends CoreModel
 
   getPath: -> @get 'column'
 
-  toJSON: -> _.extend super,
+  toJSON: -> _.extend super(),
     column: @get('column').toString()
     node: @get('node').toString()
     rows: @get('rows').map (r) -> r.map (c) -> c.toJSON()

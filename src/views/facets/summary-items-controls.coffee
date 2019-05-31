@@ -43,7 +43,7 @@ module.exports = class SummaryItemsControls extends CoreView
   RERENDER_EVT: 'change'
 
   initialize: ->
-    super
+    super()
     @listenTo @model.items, 'change:selected', @reRender
 
   # Invariants
@@ -62,7 +62,7 @@ module.exports = class SummaryItemsControls extends CoreView
 
   getData: ->
     anyItemSelected = bool @model.items.findWhere selected: true
-    _.extend super, {anyItemSelected}
+    _.extend super(), {anyItemSelected}
 
   # Subviews and post-render actions.
 

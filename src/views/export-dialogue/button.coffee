@@ -20,7 +20,7 @@ module.exports = class ExportDialogueButton extends QueryDialogueButton
   optionalParameters: ['tableState']
 
   initialize: ->
-    super
+    super()
     Counter.count @query # Disable export if no results or in error.
            .then (count) => @state.set disabled: count is 0
            .then null, (err) => @state.set disabled: true, error: err

@@ -20,10 +20,10 @@ module.exports = class SummaryStats extends CoreView
   template: Templates.template 'summary_stats'
 
   # Ensure the template has the required values.
-  getData: -> _.extend {}, NULL_STATS, super
+  getData: -> _.extend {}, NULL_STATS, super()
 
   initialize: ({@range}) ->
-    super
+    super()
     @listenTo @range, 'change', @setSliderValues
     @listenTo @range, 'change', @setButtonDisabledness
     @listenTo @range, 'change:min', @onChangeMin
@@ -144,7 +144,7 @@ module.exports = class SummaryStats extends CoreView
 
   reRender: ->
     @destroySlider()
-    super
+    super()
 
   activateSlider: (opts) ->
     @destroySlider() # remove previous slider if present.
@@ -157,5 +157,5 @@ module.exports = class SummaryStats extends CoreView
 
   remove: ->
     @destroySlider()
-    super
+    super()
 

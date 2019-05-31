@@ -28,7 +28,7 @@ module.exports = class Dashboard extends CoreView
   initialize: ({query}) ->
     unless Types.Query.test query
       throw new Error(ERR) unless query?
-    super
+    super()
     @history = new History
     @bus = new Bus
     @history.setInitialState query
@@ -54,4 +54,4 @@ module.exports = class Dashboard extends CoreView
   remove: ->
     @bus.destroy()
     @history.close()
-    super
+    super()

@@ -13,7 +13,7 @@ class SubtableHeader extends CoreView
 
   template: Templates.template 'table-subtables-header'
 
-  getData: -> _.extend super, @columnModel.pick('columnName')
+  getData: -> _.extend super(), @columnModel.pick('columnName')
 
   modelEvents: -> 'change:displayName': @reRender
 
@@ -26,12 +26,12 @@ class SubtableHeader extends CoreView
     @$('[title]').tooltip()
 
   initialize: ->
-    super
+    super()
     @listenTo @columnModel, 'change:columnName', @reRender
 
   remove: ->
     delete @columnModel
-    super
+    super()
 
 module.exports = class SubtableHeaders extends CoreView
 
@@ -55,5 +55,5 @@ module.exports = class SubtableHeaders extends CoreView
 
   remove: ->
     delete @columnModel
-    super
+    super()
 

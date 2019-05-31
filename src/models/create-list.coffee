@@ -23,7 +23,7 @@ module.exports = class CreateListModel extends CoreModel
       @trigger 'add:tag', t
       @trigger 'change'
 
-  toJSON: -> _.extend super, tags: @tags.map (t) -> t.get 'id'
+  toJSON: -> _.extend super(), tags: @tags.map (t) -> t.get 'id'
 
   addTag: ->
     tags = @get 'nextTag'
@@ -34,6 +34,6 @@ module.exports = class CreateListModel extends CoreModel
 
   destroy: ->
     @tags?.close()
-    super
+    super()
 
 

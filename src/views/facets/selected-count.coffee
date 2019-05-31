@@ -51,7 +51,7 @@ module.exports = class SelectedCount extends CoreView
     'change:selectedCount change:isApprox': @reRender
 
   initialize: ({@range}) ->
-    super
+    super()
     @listenTo @model.items, 'change:selected', @estimateSelectionSize
     @listenTo @range, 'change', @estimateSelectionSize
 

@@ -247,7 +247,7 @@ module.exports = class CoreView extends Backbone.View
     @model.destroy() if @hasOwnModel # Destroy the model if we created it.
     @removeAllChildren()
     @off()
-    super # actually remove us from the DOM (see Backbone.View)
+    super() # actually remove us from the DOM (see Backbone.View)
     this
 
   # eg: this.make('span', {className: 'foo'}, 'bar')

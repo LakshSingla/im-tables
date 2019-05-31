@@ -65,7 +65,7 @@ module.exports = class CodeGenDialogue extends Modal
 
   # We need a query, and we need to start generating our code.
   initialize: ->
-    super
+    super()
     @generateCode()
     @setExportLink()
 
@@ -98,7 +98,7 @@ module.exports = class CodeGenDialogue extends Modal
   stateEvents: -> 'change:generatedCode': @reRenderBody
 
   # The DOM events - setting the attributes of the model.
-  events: -> _.extend super,
+  events: -> _.extend super(),
     'click .dropdown-menu.im-code-gen-langs li': 'chooseLang'
 
   # Get a regular expression that will strip comments.
@@ -187,7 +187,7 @@ module.exports = class CodeGenDialogue extends Modal
     @trigger 'rendered', @rendered
 
   postRender: ->
-    super
+    super()
     @addCheckboxes()
     @highlightCode()
     @setMaxHeight()
@@ -218,7 +218,7 @@ module.exports = class CodeGenDialogue extends Modal
     return unless code?
     withPrettyPrintOne (prettyPrintOne) -> pre.html prettyPrintOne _.escape code
 
-  getData: -> _.extend super,
+  getData: -> _.extend super(),
     options: Options.get('CodeGen')
     generatedCode: @getCode()
 

@@ -13,7 +13,7 @@ module.exports = class Modal extends View
   className: -> 'modal fade'
 
   initialize: ->
-    super
+    super()
     # Create a promise and capture its resolution controls.
     @_promise = new Promise((@resolve, @reject) =>)
     @listenTo @state, 'change', @renderFooter

@@ -25,7 +25,7 @@ module.exports = class HistoFacet extends VisualisationBase
   allCountsAreOne: -> @model.get('maxCount') is 1
 
   initialize: ->
-    super
+    super()
     @listenTo @model.items, 'add remove change:selected', => @updateChart()
 
   # Preconditions
@@ -37,7 +37,7 @@ module.exports = class HistoFacet extends VisualisationBase
 
   # Set properties that we need access to the DOM to calculate.
   initChart: ->
-    super
+    super()
     @stepWidth = (@chartWidth - (@leftMargin + @rightMargin + 1)) / @model.items.size()
 
   shouldNotDrawChart: -> @allCountsAreOne()

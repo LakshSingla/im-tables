@@ -16,7 +16,7 @@ module.exports = class TableHead extends CoreView
   template: ->
 
   initialize: ->
-    super
+    super()
     @listenTo @columnHeaders, 'add reset sort', @reRender
     @listenTo @columnHeaders, 'remove', (ch) -> @removeChild ch.id
     this

@@ -11,7 +11,7 @@ module.exports = class StepModel extends CoreModel
     count: 0
 
   initialize: ->
-    super
+    super()
     @set createdAt: (new Date())
     @listenTo @, 'change:query', @_setCount
     @_setCount()
@@ -23,5 +23,5 @@ module.exports = class StepModel extends CoreModel
     else
       @set count: 0
 
-  toJSON: -> _.extend super, query: @get('query').toJSON()
+  toJSON: -> _.extend super(), query: @get('query').toJSON()
 

@@ -16,7 +16,7 @@ module.exports = class Preview extends CoreView
   @include RunsQuery
 
   initialize: ({@query}) ->
-    super
+    super()
     @state.set preview: ''
     @setPreview()
     @listenTo @state, 'change:preview', @reRender
@@ -40,7 +40,7 @@ module.exports = class Preview extends CoreView
   getData: ->
     types = @model.get 'has'
     formats = Formats.getFormats types
-    _.extend {formats}, super
+    _.extend {formats}, super()
 
   events: ->
     'change .im-export-formats select': 'setFormat'

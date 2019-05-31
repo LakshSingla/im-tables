@@ -20,7 +20,7 @@ class LogicManager extends CoreView
   parameters: ['query']
 
   initialize: ->
-    super
+    super()
     codes = (c.code for c in @query.constraints when c.code)
     @model.set logic: @query.constraintLogic
     @state.set disabled: true, defaultLogic: codes.join ' and '
@@ -56,7 +56,7 @@ class Body extends Constraints
   template: Templates.template 'active-constraints'
 
   initialize: ->
-    super
+    super()
     @assignCodes()
 
   stateEvents: ->
@@ -73,14 +73,14 @@ class Body extends Constraints
         c.code = code unless (_.any constraints, (con) -> con.code is code)
 
   postRender: ->
-    super
+    super()
     constraints = @getConstraints()
     if constraints.length > 1
       @renderChild 'logic', new LogicManager {@query}
     mth = if @state.get('adding') then 'slideUp' else 'slideDown'
     @$('.im-current-constraints')[mth] 400
 
-  getConAdder: -> super if @state.get 'adding'
+  getConAdder: -> super() if @state.get 'adding'
 
 module.exports = class FilterDialogue extends Modal
 
@@ -88,7 +88,7 @@ module.exports = class FilterDialogue extends Modal
 
   modalSize: -> 'lg'
 
-  className: -> super + ' im-filter-manager'
+  className: -> super() + ' im-filter-manager'
 
   title: -> Messages.getText 'constraints.Heading', n: @query.constraints.length
 
@@ -102,7 +102,7 @@ module.exports = class FilterDialogue extends Modal
   primaryAction: -> Messages.getText 'constraints.DefineNew'
 
   initialize: ->
-    super
+    super()
     @listenTo @, 'shown', @renderBodyContent
     @listenTo @query, 'change:constraints', @onChangeConstraints
 

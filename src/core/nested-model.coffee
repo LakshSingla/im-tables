@@ -89,7 +89,7 @@ module.exports = class NestedModel extends Model
       else if _.isObject(value) and not _.isArray(value)
         @set [key], value
       else
-        super # Handle simple key-value pairs, including unset.
+        super() # Handle simple key-value pairs, including unset.
     else # Handle calls as (Object) ->, but ignore the options object.
       for k, v of key
         @set k, v

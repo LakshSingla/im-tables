@@ -15,7 +15,7 @@ module.exports = class SingleColumnConstraintAdder extends ConstraintAdder
   parameters: ['query', 'path']
 
   initialize: ->
-    super
+    super()
     constraint = path: @path
     @model.set {constraint}
 

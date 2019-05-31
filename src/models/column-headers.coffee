@@ -10,7 +10,7 @@ module.exports = class ColumnHeaders extends Collection
   comparator: 'index'
 
   initialize: ->
-    super
+    super()
     @listenTo @, 'change:index', @sort
 
   # (Query, Collection) -> Promise

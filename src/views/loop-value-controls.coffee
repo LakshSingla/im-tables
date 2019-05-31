@@ -17,7 +17,7 @@ toOption = ({path, name}) -> value: path.toString(), text: name
 module.exports = class LoopValueControls extends View
 
   initialize: ({@query}) ->
-    super
+    super()
     @path = @model.get 'path'
     @type = @path.getType()
     @setCandidateLoops()

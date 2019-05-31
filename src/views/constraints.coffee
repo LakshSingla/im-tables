@@ -13,10 +13,10 @@ module.exports = class Constraints extends CoreView
   className: "im-constraints"
 
   initialize: ({@query}) ->
-    super
+    super()
     @listenTo @query, "change:constraints", @reRender
 
-  getData: -> _.extend super, constraints: @getConstraints()
+  getData: -> _.extend super(), constraints: @getConstraints()
 
   events: -> click: (e) -> e?.stopPropagation()
 

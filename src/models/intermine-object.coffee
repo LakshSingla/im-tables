@@ -19,7 +19,7 @@ module.exports = class IMObject extends CoreModel
       url
     else
       @get('service:base') + url
-    _.extend super, 'report:uri': uri
+    _.extend super(), 'report:uri': uri
 
   merge: (obj, field) ->
     @set field, obj.value

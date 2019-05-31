@@ -28,7 +28,7 @@ module.exports = class Attribute extends View
     'click a': 'handleClick'
 
   initialize: ({@chosenPaths, @view, @query, @path, @trail}) ->
-    super
+    super()
     @depth = @trail.length + 1
     @state.set
       visible: true
@@ -111,7 +111,7 @@ module.exports = class Attribute extends View
   """
 
   render: ->
-    super
+    super()
     @$el.toggleClass 'disabled', @getDisabled()
     if Options.get('ShowId')
       @$('a').tooltip placement: 'bottom'

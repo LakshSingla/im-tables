@@ -12,7 +12,7 @@ module.exports = class SelectWithLabel extends InputWithLabel
 
   parameters: -> ['model', 'collection', 'attr', 'label', 'optionLabel']
 
-  optionalParameters: -> ['noOptionsMessage'].concat super
+  optionalParameters: -> ['noOptionsMessage'].concat super()
 
   template: Templates.template 'select-with-label'
 

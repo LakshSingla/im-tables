@@ -8,17 +8,17 @@ Messages = require '../messages'
 # Very simple dialogue that just wraps a ConstraintAdder
 module.exports = class NewFilterDialogue extends Modal
 
-  className: -> 'im-constraint-dialogue ' + super
+  className: -> 'im-constraint-dialogue ' + super()
 
   modalSize: 'lg'
 
   initialize: ({@query}) ->
-    super
+    super()
     @listenTo @query, 'change:constraints', @resolve # Our job is done.
     @listenTo @query, 'editing-constraint', => # Can we do this on the model?
         @$('.im-add-constraint').removeClass 'disabled'
 
-  events: -> _.extend super,
+  events: -> _.extend super(),
     'click .im-add-constraint': 'addConstraint'
     'childremoved': (e, child) => @hide() if child instanceof ConstraintAdder
 
@@ -29,4 +29,4 @@ module.exports = class NewFilterDialogue extends Modal
     footer = @$ '.modal-footer'
     body = @$ '.modal-body'
     @renderChild 'adder', (new ConstraintAdder {buttonDelegate: footer, @query}), body
-    super
+    super()

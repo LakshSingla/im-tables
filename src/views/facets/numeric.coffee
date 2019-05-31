@@ -48,7 +48,7 @@ module.exports = class NumericDistribution extends VisualisationBase
   # Range is shared by other components, so we accept it from the outside.
   # We listen to changes on the range and respond by drawing a selection box.
   initialize: ({@range}) ->
-    super
+    super()
     @listenTo @range, 'change reset', @onChangeRange
 
   # Things to check when we are initialised.
@@ -82,7 +82,7 @@ module.exports = class NumericDistribution extends VisualisationBase
 
   # Set properties that we need access to the DOM to calculate.
   initChart: ->
-    super
+    super()
     @bucketWidth = (@model.get('max') - @model.get('min')) / @model.get('buckets')
     @stepWidth = (@chartWidth - (@leftMargin + 1)) / @model.get('buckets')
 
@@ -249,5 +249,5 @@ module.exports = class NumericDistribution extends VisualisationBase
   remove: -> # remove the chart if necessary.
     @removeSelection()
     @paper?.remove()
-    super
+    super()
 

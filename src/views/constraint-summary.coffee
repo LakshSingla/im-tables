@@ -18,10 +18,10 @@ module.exports = class ConstraintSummary extends CoreView
   className: 'constraint-summary breadcrumb'
 
   initialize: ->
-    super
+    super()
     @listenTo Messages, 'change', @reRender
 
-  getData: -> _.extend super, labels: @getSummary()
+  getData: -> _.extend super(), labels: @getSummary()
 
   template: Templates.template 'constraint-summary'
 

@@ -42,7 +42,7 @@ module.exports = class FacetRow extends CoreView
     opacity = (ratio / 2 + 0.5).toFixed() # opacity ranges from 0.5 - 1
     percent = (ratio * 100).toFixed() # percentage is int from 0 - 100
 
-    _.extend super, {percent, opacity, max}
+    _.extend super(), {percent, opacity, max}
 
   onRenderError: (e) -> console.error e
 

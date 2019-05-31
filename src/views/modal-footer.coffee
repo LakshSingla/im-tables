@@ -24,7 +24,7 @@ module.exports = class ModalFooter extends CoreView
 
   parameters: ['template', 'actionNames', 'actionIcons']
 
-  getData: -> _.extend defaultData(), @actionNames, @actionIcons, super
+  getData: -> _.extend defaultData(), @actionNames, @actionIcons, super()
 
   postRender: ->
     @$('[title]').tooltip()

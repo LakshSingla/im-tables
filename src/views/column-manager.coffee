@@ -20,10 +20,10 @@ class IndexedCollection extends Collection
   comparator: 'index'
 
   add: ->
-    super
+    super()
 
   constructor: ->
-    super
+    super()
     @listenTo @, 'change:index', -> _.defer => @sort()
 
   modelFactory: Collection::model # by default, make a model.
@@ -49,7 +49,7 @@ module.exports = class ColumnManager extends Modal
 
   modalSize: -> 'lg'
 
-  className: -> super + ' im-column-manager'
+  className: -> super() + ' im-column-manager'
 
   title: -> Messages.getText 'columns.DialogueTitle'
 
@@ -76,7 +76,7 @@ module.exports = class ColumnManager extends Modal
     'change:adding': @setDisabled
 
   initialize: ->
-    super
+    super()
     # Populate the select list and sort-order with the current state of the
     # query.
     @selectList = new SelectList
@@ -141,7 +141,7 @@ module.exports = class ColumnManager extends Modal
     @renderChild 'main', main, @$ '.modal-body'
 
   postRender: ->
-    super
+    super()
     @renderTabs()
     @renderTabContent()
 
@@ -150,7 +150,7 @@ module.exports = class ColumnManager extends Modal
     @rubbishBin.close()
     @sortOrder.close()
     @availableColumns.close()
-    super
+    super()
 
 
 

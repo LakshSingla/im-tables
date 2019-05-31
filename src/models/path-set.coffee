@@ -13,7 +13,7 @@ module.exports = class PathSet extends UniqItems
 
   remove: (path) ->
     if path instanceof Backbone.Model
-      return super
+      return super()
 
     delendum = @find (model) -> path.equals model.get 'item'
     if delendum?

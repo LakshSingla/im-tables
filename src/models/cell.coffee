@@ -19,7 +19,7 @@ module.exports = class CellModel extends CoreModel
     value: null # :: Any
 
   initialize: ->
-    super
+    super()
     types = (@get('entity').get('classes') ? [@get('node')])
     {model} = column = @get('column')
     column.getDisplayName().then (columnName) => @set {columnName}
@@ -29,7 +29,7 @@ module.exports = class CellModel extends CoreModel
 
   getPath: -> @get('column')
 
-  toJSON: -> _.extend super,
+  toJSON: -> _.extend super(),
     column: @get('column').toString()
     node: @get('node').toString()
     entity: @get('entity').toJSON()

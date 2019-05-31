@@ -15,7 +15,7 @@ module.exports = class Checkbox extends CoreView
     checked: @checked()
     label: (if @label then Messages.getText(@label) else null)
 
-  initialize: ({@attr, @label}) -> super
+  initialize: ({@attr, @label}) -> super()
 
   checked: -> @model.get @attr
 

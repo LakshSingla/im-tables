@@ -18,11 +18,11 @@ module.exports = class AvailableColumns extends Collection
   model: PathModel
 
   add: (model) ->
-    returned = super
+    returned = super()
     if returned and !returned.collection? then returned.collection = @
 
   initialize: ->
-    super
+    super()
     @on 'change:parts change:displayName', => @sort()
 
   comparator: (a, b) -> # sort by path-length, and then lexically by attribute name.

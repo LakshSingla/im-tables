@@ -20,7 +20,7 @@ module.exports = class PathChooser extends CoreView
   className: 'im-path-chooser'
 
   initialize: ->
-    super
+    super()
     @path  = (_.last(@trail) or @model.get('root') or @query.makePath(@query.root))
     @cd    = @path.getEndClass()
     toPath = appendField.bind null, @path

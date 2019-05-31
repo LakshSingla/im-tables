@@ -46,7 +46,7 @@ class PossibleList extends CoreModel
     size: 0
 
   initialize: ->
-    super
+    super()
     @fetchTypeName()
 
   fetchTypeName: ->
@@ -73,7 +73,7 @@ module.exports = class BaseAppendDialogue extends BaseCreateListDialogue
   primaryAction: -> Messages.getText 'lists.Append'
 
   initialize: ->
-    super
+    super()
     @listenTo @getPossibleLists(), 'remove reset', @verifyState
     @listenTo @getPossibleLists(), 'add reset', @setTargetIfOnlyOne
 
@@ -81,11 +81,11 @@ module.exports = class BaseAppendDialogue extends BaseCreateListDialogue
 
   processQuery: (query) -> query.appendToList @model.get 'target'
   
-  modelEvents: -> _.extend super,
+  modelEvents: -> _.extend super(),
     'change:target': 'onChangeTarget'
 
   initState: ->
-    super
+    super()
     @fetchSuitableLists()
     @verifyState()
 
@@ -112,10 +112,10 @@ module.exports = class BaseAppendDialogue extends BaseCreateListDialogue
       @state.set error: NO_TARGET_SELECTED
 
   onChangeType: ->
-    super
+    super()
     @fetchSuitableLists()
 
-  getBodyOptions: -> _.extend super, collection: @getPossibleLists()
+  getBodyOptions: -> _.extend super(), collection: @getPossibleLists()
 
   verifyTargetExistsAndIsSuitable: ->
     type = @getType()

@@ -9,7 +9,7 @@ module.exports = class VisualisationBase extends CoreView
   chartWidth: 0 # the width we have available - set during render.
 
   initialize: ->
-    super
+    super()
     @listenTo @model, 'change:loading', @reRender
 
   postRender: ->

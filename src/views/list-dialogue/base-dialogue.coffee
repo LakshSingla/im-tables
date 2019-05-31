@@ -31,7 +31,7 @@ module.exports = class BaseCreateListDialogue extends Modal
 
   Body: ListDialogueBody
 
-  className: -> super + ' im-list-dialogue im-create-list'
+  className: -> super() + ' im-list-dialogue im-create-list'
 
   title: -> Messages.getText 'lists.CreateListTitle', @getData()
 
@@ -87,6 +87,6 @@ module.exports = class BaseCreateListDialogue extends Modal
   getBodyOptions: -> {@model, @state}
 
   postRender: ->
-    super
+    super()
     @renderChild 'body', (new this.Body @getBodyOptions()), @$ '.modal-body'
 

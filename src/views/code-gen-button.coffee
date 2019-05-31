@@ -33,7 +33,7 @@ module.exports = class CodeGenButton extends CoreView
   template: Templates.template 'code-gen-button'
 
   # The data that the template renders.
-  getData: -> _.extend super, options: Options.get('CodeGen')
+  getData: -> _.extend super(), options: Options.get('CodeGen')
 
   renderChildren: ->
     @renderChildAt '.im-show-code-gen-dialogue', new MainButton {@model}
