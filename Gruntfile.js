@@ -10,12 +10,13 @@ grunt.loadNpmTasks('grunt-notify');
 grunt.loadNpmTasks('grunt-run');
 grunt.loadNpmTasks('grunt-sandbox-css');
 grunt.loadNpmTasks('grunt-babel');
+grunt.loadNpmTasks('grunt-browserify');
 
 var env = process.env;
 
 var serverPort = (grunt.option('port') || env.PORT || env.npm_package_config_port || 3000);
 
-var NO_SPAWN = {spawn: false};
+var NO_SPAWN = { spawn: false };
 
 grunt.initConfig({
   watch: { // Hwat! This task lays out the dependency graph.
@@ -84,6 +85,20 @@ grunt.initConfig({
       }
     }
   },
+  browserify: {
+    dist: {
+      files: {
+        // destination for transpiled js : source js
+        'dist/imtables.js': '.tmp/imtables.js'
+      },
+      options: {
+        transform: [['babelify', { presets: "es2015" }]],
+        browserifyOptions: {
+          debug: true
+        }
+      }
+    }
+  },
   copy: {
     js: {
       files: [
@@ -106,7 +121,7 @@ grunt.initConfig({
       ]
     }
   },
-  
+
   run: {
     server: {
       cmd: 'serve',
@@ -219,7 +234,7 @@ grunt.registerTask('build:dist', [
   'compile',
   'style',
   'run:bundle_artifacts',
-  'babel',
+  'browserify:dist',
   'uglify:dist'
 ]);
 
