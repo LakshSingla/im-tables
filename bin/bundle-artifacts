@@ -7,7 +7,7 @@ mkdir -p dist
 echo "Building imtables"
 browserify \
     --entry build/main.js \
-    --outfile dist/imtables.js \
+    --outfile .tmp/imtables.js \
     --standalone imtables
 
 echo "Built imtables"

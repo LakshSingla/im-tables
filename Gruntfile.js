@@ -5,10 +5,11 @@ var grunt = require('grunt');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-contrib-coffee');
 grunt.loadNpmTasks('grunt-contrib-copy');
-grunt.loadNpmTasks('grunt-contrib-uglify-es');
+grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-notify');
 grunt.loadNpmTasks('grunt-run');
 grunt.loadNpmTasks('grunt-sandbox-css');
+grunt.loadNpmTasks('grunt-babel');
 
 var env = process.env;
 
@@ -72,6 +73,17 @@ grunt.initConfig({
       ext: '.js'
     }
   },
+  babel: {
+    options: {
+      sourceMap: true,
+      presets: ["env"]
+    },
+    dist: {
+      files: {
+        "dist/imtables.js": ".tmp/imtables.js"
+      }
+    }
+  },
   copy: {
     js: {
       files: [
@@ -94,6 +106,7 @@ grunt.initConfig({
       ]
     }
   },
+  
   run: {
     server: {
       cmd: 'serve',
@@ -206,6 +219,7 @@ grunt.registerTask('build:dist', [
   'compile',
   'style',
   'run:bundle_artifacts',
+  'babel',
   'uglify:dist'
 ]);
 

@@ -1,0 +1,10 @@
+{
+  "presets": ["@babel/preset-env"],
+	"plugins": [
+		"@babel/plugin-transform-classes",
+    "babel-plugin-transform-es2015-classes",
+    ["babel-plugin-transform-builtin-classes", {
+      "globals": ["Array", "Error", "HTMLElement"]
+    }]
+  ]
+}
