@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+<!-- The Element we will target -->
+<div id="some-other-elem"></div>
+<!-- The imtables source -->
+<!--script src="http://cdn.intermine.org/js/intermine/im-tables/2.0.0-beta/imtables.js" charset="UTF-8"></script-->
+<script src="imtables.min.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="main.sandboxed.css">
+
+
+<script>
+var selector = '#some-other-elem';
+var service  = {root: 'http://www.flymine.org/flymine/service/'};
+var query    = {
+  "name": "Gene_Pathway",
+  "title": "Gene -->  Pathway",
+  "description": "Show the Pathway identifier(s) and name for the selected gene.",
+  "from": "Gene",
+  "select": [
+    "secondaryIdentifier",
+    "symbol",
+    "pathways.identifier",
+    "pathways.name",
+    "pathways.dataSets.name"
+  ],
+  "orderBy": [
+    {
+      "path": "secondaryIdentifier",
+      "direction": "ASC"
+    }
+  ],
+  "where": [
+    {
+      "path": "Gene",
+      "op": "LOOKUP",
+      "value": "bsk",
+      "extraValue": "D. melanogaster",
+      "code": "A",
+      "editable": true,
+      "switched": "LOCKED",
+      "switchable": false
+    }
+  ]
+};
+
+imtables.loadTable(
+  selector, // Can also be an element, or a jQuery object.
+  {"start":0,"size":25}, // May be null
+  {service: service, query: query} // May be an imjs.Query
+).then(
+  function (table) { console.log('Table loaded', table); },
+  function (error) { console.error('Could not load table', error); }
+);
+
+</script>
+
+
+
+
+<!-- The Element we will target -->
+<div id="some-elem"></div>
+<!-- The imtables source -->
+<script>
+
+var selector = '#some-elem';
+var service  = {root: 'http://www.humanmine.org/humanmine/service/'};
+var query    = {
+  "name": "Gene_Pathway",
+  "title": "Gene --> Pathway",
+  "comment": "Added 26OCT2010: ML",
+  "description": "For a given Gene (or List of Genes) show any associated Pathway(s) (Data Source: KEGG or REACTOME). Keywords: pathways, metabolism, cascade ",
+  "from": "Gene",
+  "select": [
+    "primaryIdentifier",
+    "symbol",
+    "name",
+    "pathways.name",
+    "pathways.dataSets.name",
+    "pathways.identifier",
+    "organism.shortName"
+  ],
+  "orderBy": [
+    {
+      "path": "primaryIdentifier",
+      "direction": "ASC"
+    },
+    {
+      "path": "primaryIdentifier",
+      "direction": "ASC"
+    },
+    {
+      "path": "primaryIdentifier",
+      "direction": "ASC"
+    }
+  ],
+  "where": [
+    {
+      "path": "Gene",
+      "op": "LOOKUP",
+      "value": "PPARG",
+      "extraValue": "H. sapiens",
+      "code": "A",
+      "editable": true,
+      "switched": "LOCKED",
+      "switchable": false
+    }
+  ]
+};
+
+imtables.loadTable(
+  selector, // Can also be an element, or a jQuery object.
+  {"start":0,"size":25}, // May be null
+  {service: service, query: query} // May be an imjs.Query
+).then(
+  function (table) { console.log('Table loaded', table); },
+  function (error) { console.error('Could not load table', error); }
+);
+
+</script>
+
+
+
+  </body>
+</html>
